@@ -1,12 +1,20 @@
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import { Audio } from 'expo-av';
 import { BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import { useRoute } from '@react-navigation/native';
-
+import { useLayoutEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 const MultiPlayerHome = () => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown:false,
+    });
+    
+  }, []) 
 
   const route = useRoute();
   const { theme} = route.params;
@@ -75,6 +83,18 @@ const MultiPlayerHome = () => {
   };
 
   return (
+    <>
+      <SafeAreaView>
+         <StatusBar style="light" backgroundColor='#6a148c' />
+         </SafeAreaView>
+
+      
+    <ImageBackground
+        source={require("./../../assets/spaceBackground.jpg")
+      }
+        resizeMode="stretch"
+        style={{"height":"100%"}}
+        >
     <View style={styles.container}>
       <Text style={styles.label}>Number of players:</Text>
       <View className="h-20">
@@ -128,6 +148,8 @@ const MultiPlayerHome = () => {
       />
       </View>
     </View>
+    </ImageBackground>
+    </>
   );
 };
 
@@ -136,7 +158,7 @@ const styles = {
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     alignItems: 'center',
   },
   
@@ -154,6 +176,7 @@ const styles = {
     marginTop: 20,
     marginBottom: 10,
     alignSelf: 'flex-start',
+    color:"white"
   },
   label2: {
     
@@ -161,6 +184,7 @@ const styles = {
     marginTop: 22,
     marginBottom: 2,
     alignSelf: 'flex-start',
+    color:"white"
   },
   numPlayersContainer: {
     marginTop: 10,
@@ -171,19 +195,21 @@ const styles = {
   },
   numPlayer: {
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: 'white',
     padding: 10,
     marginRight: 10,
     borderRadius: 5,
+    backgroundColor:"white"
   },
   numPlayerText: {
     fontWeight: 'bold',
+    color:"black"
   },
   numPlayerActive: {
-    backgroundColor: '#000',
+    backgroundColor: 'blue',
   },
   numPlayerTextActive: {
-    color: '#fff',
+    color: 'orange',
   },
   stringsContainer: {
     flex: 1,
@@ -197,9 +223,10 @@ const styles = {
     stringInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: 'orange',
     padding: 10,
     borderRadius: 5,
+    color:"white"
     
     },
     removeStringButton: {

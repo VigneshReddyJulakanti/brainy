@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   circleText: {
+    color:"white",
     fontSize: 32,
     fontWeight: 'bold',
   },

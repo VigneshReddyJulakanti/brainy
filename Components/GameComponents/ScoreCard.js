@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10,
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 32,
     textShadowColor: 'rgba(0, 0, 0, 0.5)',

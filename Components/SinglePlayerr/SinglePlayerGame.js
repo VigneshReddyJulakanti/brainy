@@ -1,6 +1,6 @@
 
 
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground  } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import WordChooserBox from './../GameComponents/WordChooserBox'
@@ -17,7 +17,6 @@ import BackButtonModal from '../GameComponents/BackButtonModal';
 import Timer from '../GameComponents/Timer';
 import { BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {  InterstitialAd, AdEventType, RewardedInterstitialAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
-
 
 
 
@@ -327,13 +326,23 @@ const [prevShowing, setprevShowing] = useState(false)
   return (
     <>
      <SafeAreaView>
-         <StatusBar style="auto" backgroundColor='pink' />
+         <StatusBar style="light" backgroundColor='#19062e' />
          </SafeAreaView>
+         <ImageBackground
+        source={require("./../../assets/spaceBackground.jpg")
+      }
+        resizeMode="stretch"
+        style={{"height":"100%"}}
+        >
     
     <View>
+    
+        
+      
    <GoodWords text={"Memory Mania"}/>
    <BackButtonModal goBackName={"home"} />
       <ScoreCard score={score} target={null} text={"Score"}/>
+      
       
      
       
@@ -354,6 +363,7 @@ const [prevShowing, setprevShowing] = useState(false)
 
       />
       </View>
+      </ImageBackground>
     </>
   )
 }
@@ -365,5 +375,5 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 30,
     paddingBottom: 50,
-  },
+  }
 })

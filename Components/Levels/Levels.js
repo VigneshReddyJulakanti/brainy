@@ -1,11 +1,26 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Dimensions } from 'react-native';
 import LevelClickable from './LevelClickable';
 import LevelColorView from './LevelColorView';
 import { BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import { useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
+import { useLayoutEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+var deviceWidth = Dimensions.get('window').width;
+var deviceHeight = Dimensions.get('window').Height;
+
 const Levels = () => {
+
+  const navigation= useNavigation();
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown:false,
+    });
+    
+  }, []) 
   const route = useRoute();
   const { theme} = route.params;
 
@@ -38,6 +53,17 @@ const Levels = () => {
 
   return (
     <>
+    
+    <SafeAreaView>
+    <StatusBar style="light" backgroundColor='#1f0f99' />
+         </SafeAreaView>
+
+    <View >
+    <ImageBackground
+        source={require("./../../assets/sunset.jpg")}
+        resizeMode="cover"
+        style={{"height":"100%"}}
+        > 
     <View style={styles.titleView}>
       <Text style={styles.title}>Levels</Text>
       </View>
@@ -59,6 +85,8 @@ const Levels = () => {
 
       />
       </View>
+      </ImageBackground>
+      </View>
       </>
   );
 };
@@ -74,7 +102,7 @@ const styles = StyleSheet.create({
     bottom:-20
   },
   title: {
-    
+    color:"white",
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,

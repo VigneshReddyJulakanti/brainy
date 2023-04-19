@@ -20,6 +20,7 @@ const WordChooserBox = ({ words, onWordSelect ,turn,own}) => {
 
   return (
     <View style={styles.container}>
+       
       
       <Text style={styles.title}>Choose your {turn} word:</Text>
       <View style={styles.buttonsContainer}>
@@ -56,6 +57,7 @@ const WordChooserBox = ({ words, onWordSelect ,turn,own}) => {
 
 
       </View>
+  
     </View>
   );
 };
@@ -63,7 +65,7 @@ const WordChooserBox = ({ words, onWordSelect ,turn,own}) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#54cc6e',
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {

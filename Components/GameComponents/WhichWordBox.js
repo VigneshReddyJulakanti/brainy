@@ -51,7 +51,7 @@ useEffect(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#f2949d',
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    color:"red"
+    color:"white"
   },
   buttonsContainer: {
     flexDirection: 'row',

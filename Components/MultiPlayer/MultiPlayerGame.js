@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import WordChooserBox from './../GameComponents/WordChooserBox'
@@ -401,9 +401,14 @@ const [prevShowing, setprevShowing] = useState(false)
   return (
     <>
      <SafeAreaView>
-         <StatusBar style="auto" backgroundColor='pink' />
+     <StatusBar style="light" backgroundColor='#19062e' />
          </SafeAreaView>
-    
+         <ImageBackground
+        source={require("./../../assets/spaceBackground.jpg")
+      }
+      style={{"height":"100%"}}
+        resizeMode="stretch"
+        >
     <View>
    <GoodWords text={"Memory Mania"}/>
    <BackButtonModal goBackName={"home"} />
@@ -433,6 +438,7 @@ const [prevShowing, setprevShowing] = useState(false)
 
       />
       </View>
+      </ImageBackground>
     </>
   )
 }

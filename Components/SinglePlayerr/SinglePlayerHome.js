@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import { useLayoutEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -38,9 +38,14 @@ const SinglePlayerHome = () => {
   return (
     <>
         <SafeAreaView>
-         <StatusBar style="auto" />
+        <StatusBar style="light" backgroundColor='#1f0f99' />
          </SafeAreaView>
+
     <View style={styles.container}>
+         <ImageBackground
+        source={require("./../../assets/sunset.jpg")}
+        resizeMode="cover"
+        > 
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{justifyContent:'center',alignItems:"center",flex:0}} horizontal={false} >
    
       <Text style={styles.heading}>Select a Theme</Text>
@@ -58,8 +63,8 @@ const SinglePlayerHome = () => {
      
       </ScrollView>
       <Text style={styles.bot}>{themes.length} Themes available</Text>
-    </View>
     <View style={styles.container2}>
+      
       <BannerAd 
         unitId={"ca-app-pub-3131514056752591/3422365918"}
         // unitId={TestIds.BANNER}
@@ -70,6 +75,10 @@ const SinglePlayerHome = () => {
 
       />
       </View>
+      </ImageBackground>
+    </View>
+
+    
     </>
   );
 };
@@ -83,16 +92,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   container2: {
+  
+
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    
     position:"relative",
     bottom:-20
   },
   bot:{
+    alignSelf:"center",
 color:"green"
   },
   heading: {
+    color:"white",
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 30,

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     // top: 0,
     // left: 0,
     // right: 0,
-    backgroundColor: 'pink',
+    backgroundColor: '#19062e',
     padding: 10,
     zIndex: 999,
     alignItems: 'center',
